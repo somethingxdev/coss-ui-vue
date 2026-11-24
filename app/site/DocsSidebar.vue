@@ -6,8 +6,8 @@ import { docsNav } from './docs'
 
 <template>
   <aside class="sticky top-(--header-height) z-30 hidden h-[calc(100svh-var(--header-height))] w-(--sidebar-width) shrink-0 lg:flex">
-    <ScrollArea scroll-fade class="**:data-[slot=scroll-area-scrollbar]:hidden">
-      <nav class="flex flex-col gap-4 px-4 py-2" aria-label="Docs">
+    <ScrollArea class="min-h-0 flex-1" fill overscroll-contain scroll-fade>
+      <nav class="flex h-full flex-col gap-2 px-4 py-2" aria-label="Docs">
         <div class="h-(--top-spacing) shrink-0" />
         <div v-for="group in docsNav" :key="group.title" class="flex flex-col gap-1">
           <p class="flex h-7 items-center font-medium text-sidebar-accent-foreground text-xs">

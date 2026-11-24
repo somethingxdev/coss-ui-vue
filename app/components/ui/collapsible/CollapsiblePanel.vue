@@ -14,12 +14,14 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <CollapsiblePrimitive.Panel
-    :class="cn(
-      'h-(--collapsible-panel-height) overflow-hidden transition-[height] duration-200 data-ending-style:h-0 data-starting-style:h-0',
-      props.class,
-    )"
-  >
-    <slot />
-  </CollapsiblePrimitive.Panel>
+  <Transition>
+    <CollapsiblePrimitive.Panel
+      :class="cn(
+        'h-(--collapsible-panel-height) overflow-hidden transition-[height] duration-200 motion-reduce:transition-none [&.v-leave-to]:h-0 [&.v-enter-from]:h-0',
+        props.class,
+      )"
+    >
+      <slot />
+    </CollapsiblePrimitive.Panel>
+  </Transition>
 </template>

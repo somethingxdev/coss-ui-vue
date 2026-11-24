@@ -14,11 +14,13 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <AccordionPrimitive.Panel
-    class="h-(--accordion-panel-height) overflow-hidden text-muted-foreground text-sm transition-[height] duration-200 ease-in-out data-ending-style:h-0 data-starting-style:h-0"
-  >
-    <div :class="cn('pt-0 pb-4', props.class)">
-      <slot />
-    </div>
-  </AccordionPrimitive.Panel>
+  <Transition>
+    <AccordionPrimitive.Panel
+      class="h-(--accordion-panel-height) overflow-hidden text-muted-foreground text-sm transition-[height] duration-200 motion-reduce:transition-none ease-in-out [&.v-leave-to]:h-0 [&.v-enter-from]:h-0"
+    >
+      <div :class="cn('pt-0 pb-4', props.class)">
+        <slot />
+      </div>
+    </AccordionPrimitive.Panel>
+  </Transition>
 </template>

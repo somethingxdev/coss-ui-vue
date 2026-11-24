@@ -14,10 +14,12 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <DialogPrimitive.Backdrop
-    :class="cn(
-      'fixed inset-0 z-50 bg-black/32 backdrop-blur-sm transition-all duration-200 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-[-webkit-touch-callout:none]:absolute',
-      props.class,
-    )"
-  />
+  <Transition>
+    <DialogPrimitive.Backdrop
+      :class="cn(
+        'fixed inset-0 z-50 bg-black/32 backdrop-blur-sm transition-opacity duration-200 [&.v-leave-to]:opacity-0 [&.v-enter-from]:opacity-0 supports-[-webkit-touch-callout:none]:absolute',
+        props.class,
+      )"
+    />
+  </Transition>
 </template>

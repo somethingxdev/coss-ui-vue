@@ -26,16 +26,18 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <TooltipPrimitive.Portal>
     <TooltipPrimitive.Positioner class="z-50" :align="props.align" :side="props.side" :side-offset="props.sideOffset">
-      <TooltipPrimitive.Popup
-        v-slot="{ state }"
-        v-bind="$attrs"
-        :class="cn(
-          'relative max-w-(--available-width) origin-(--transform-origin) overflow-visible text-balance rounded-md border bg-popover not-dark:bg-clip-padding px-2 py-1 text-popover-foreground text-xs shadow-md/5 transition-[scale,opacity] before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-md)-1px)] before:shadow-[0_1px_--theme(--color-black/4%)] data-ending-style:scale-98 data-starting-style:scale-98 data-ending-style:opacity-0 data-starting-style:opacity-0 data-instant:duration-0 dark:before:shadow-[0_-1px_--theme(--color-white/6%)]',
-          props.class,
-        )"
-      >
-        <slot :state="state" />
-      </TooltipPrimitive.Popup>
+      <Transition>
+        <TooltipPrimitive.Popup
+          v-slot="{ state }"
+          v-bind="$attrs"
+          :class="cn(
+            'relative max-w-(--available-width) origin-(--transform-origin) overflow-visible text-balance rounded-md border bg-popover not-dark:bg-clip-padding px-2 py-1 text-popover-foreground text-xs shadow-md/5 transition-[scale,opacity] before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-md)-1px)] before:shadow-[0_1px_--theme(--color-black/4%)] motion-safe:[&.v-leave-to]:scale-98 motion-safe:[&.v-enter-from]:scale-98 [&.v-leave-to]:opacity-0 [&.v-enter-from]:opacity-0 data-instant:duration-0 dark:before:shadow-[0_-1px_--theme(--color-white/6%)]',
+            props.class,
+          )"
+        >
+          <slot :state="state" />
+        </TooltipPrimitive.Popup>
+      </Transition>
     </TooltipPrimitive.Positioner>
   </TooltipPrimitive.Portal>
 </template>

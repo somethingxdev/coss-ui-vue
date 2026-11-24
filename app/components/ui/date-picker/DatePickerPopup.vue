@@ -28,11 +28,13 @@ const isRange = useDatePickerRange()
 <template>
   <Popover.Portal>
     <component :is="isRange() ? DateRangePicker.Positioner : DatePickerPrimitive.Positioner" :align="props.align" :align-offset="props.alignOffset" :side-offset="props.sideOffset" class="z-50">
-      <component :is="isRange() ? DateRangePicker.Popup : DatePickerPrimitive.Popup" v-bind="$attrs" :class="cn(pickerPopupClassName, props.class)">
-        <div data-slot="date-picker-viewport" :class="pickerViewportClassName">
-          <slot />
-        </div>
-      </component>
+      <Transition>
+        <component :is="isRange() ? DateRangePicker.Popup : DatePickerPrimitive.Popup" v-bind="$attrs" :class="cn(pickerPopupClassName, props.class)">
+          <div data-slot="date-picker-viewport" :class="pickerViewportClassName">
+            <slot />
+          </div>
+        </component>
+      </Transition>
     </component>
   </Popover.Portal>
 </template>
