@@ -1,0 +1,240 @@
+import type { ComponentDoc, NavGroup } from './types'
+
+export const componentDocs: ComponentDoc[] = [
+  {
+    slug: 'accordion',
+    title: 'Accordion',
+    description: 'A set of collapsible panels with headings and content.',
+    coss: true,
+  },
+  {
+    slug: 'alert-dialog',
+    title: 'Alert Dialog',
+    description: 'A dialog that requires user response to proceed.',
+    coss: true,
+  },
+  {
+    slug: 'autocomplete',
+    title: 'Autocomplete',
+    description: 'An input that suggests options as you type.',
+    coss: true,
+  },
+  {
+    slug: 'avatar',
+    title: 'Avatar',
+    description: 'An image element with a fallback for representing the user.',
+    coss: true,
+  },
+  {
+    slug: 'button',
+    title: 'Button',
+    description: 'A button or a component that looks like a button.',
+    coss: true,
+  },
+  {
+    slug: 'calendar',
+    title: 'Calendar',
+    description: 'A grid of days for picking a date.',
+    coss: true,
+  },
+  {
+    slug: 'checkbox',
+    title: 'Checkbox',
+    description: 'A control allowing the user to toggle between checked and not checked.',
+    coss: true,
+  },
+  {
+    slug: 'checkbox-group',
+    title: 'Checkbox Group',
+    description: 'Provides shared state to a series of checkboxes.',
+    coss: true,
+  },
+  {
+    slug: 'collapsible',
+    title: 'Collapsible',
+    description: 'A collapsible panel controlled by a button trigger.',
+    coss: true,
+  },
+  {
+    slug: 'combobox',
+    title: 'Combobox',
+    description: 'An input combined with a list of predefined items to select.',
+    coss: true,
+  },
+  {
+    slug: 'context-menu',
+    title: 'Context Menu',
+    description: 'A menu that appears at the pointer on right click or long press.',
+    coss: true,
+  },
+  {
+    slug: 'date-picker',
+    title: 'Date Picker',
+    description: 'A date field with a popup calendar.',
+    coss: true,
+  },
+  {
+    slug: 'dialog',
+    title: 'Dialog',
+    description: 'A popup that opens on top of the entire page.',
+    coss: true,
+  },
+  {
+    slug: 'drawer',
+    title: 'Drawer',
+    description: 'A panel that slides in from the edge of the screen with swipe gestures, snap points, and nested drawer support.',
+    coss: true,
+  },
+  {
+    slug: 'field',
+    title: 'Field',
+    description: 'A component that provides labelling and validation for form controls.',
+    coss: true,
+  },
+  {
+    slug: 'fieldset',
+    title: 'Fieldset',
+    description: 'A native fieldset element with a legend.',
+    coss: true,
+  },
+  {
+    slug: 'form',
+    title: 'Form',
+    description: 'A form wrapper component that simplifies validation and submission.',
+    coss: true,
+  },
+  {
+    slug: 'input',
+    title: 'Input',
+    description: 'A native input element.',
+    coss: true,
+  },
+  {
+    slug: 'menu',
+    title: 'Menu',
+    description: 'A list of actions in a dropdown, enhanced with keyboard navigation.',
+    coss: true,
+  },
+  {
+    slug: 'meter',
+    title: 'Meter',
+    description: 'A graphical display of a numeric value within a range.',
+    coss: true,
+  },
+  {
+    slug: 'number-field',
+    title: 'Number Field',
+    description: 'A numeric input element with increment and decrement buttons, and a scrub area.',
+    coss: true,
+  },
+  {
+    slug: 'otp-field',
+    title: 'OTP Field',
+    description: 'A segmented input for one-time passwords and verification codes.',
+    coss: true,
+  },
+  {
+    slug: 'popover',
+    title: 'Popover',
+    description: 'An accessible popup anchored to a button.',
+    coss: true,
+  },
+  {
+    slug: 'preview-card',
+    title: 'Preview Card',
+    description: 'A popup that appears when a link is hovered, showing a preview for sighted users.',
+    coss: true,
+  },
+  {
+    slug: 'progress',
+    title: 'Progress',
+    description: 'Displays the status of a task that takes a long time.',
+    coss: true,
+  },
+  {
+    slug: 'radio-group',
+    title: 'Radio Group',
+    description: 'A set of checkable buttons where no more than one of the buttons can be checked at a time.',
+    coss: true,
+  },
+  {
+    slug: 'scroll-area',
+    title: 'Scroll Area',
+    description: 'A native scroll container with custom scrollbars.',
+    coss: true,
+  },
+  {
+    slug: 'select',
+    title: 'Select',
+    description: 'A common form component for choosing a predefined value in a dropdown menu.',
+    coss: true,
+  },
+  {
+    slug: 'separator',
+    title: 'Separator',
+    description: 'A separator element accessible to screen readers.',
+    coss: true,
+  },
+  {
+    slug: 'slider',
+    title: 'Slider',
+    description: 'An input where the user selects a value from within a given range.',
+    coss: true,
+  },
+  {
+    slug: 'switch',
+    title: 'Switch',
+    description: 'A control that indicates whether a setting is on or off.',
+    coss: true,
+  },
+  {
+    slug: 'tabs',
+    title: 'Tabs',
+    description: 'A component for toggling between related panels on the same page.',
+    coss: true,
+  },
+  {
+    slug: 'toast',
+    title: 'Toast',
+    description: 'A temporary notification that appears on screen to inform users.',
+    coss: true,
+  },
+  {
+    slug: 'toggle',
+    title: 'Toggle',
+    description: 'A two-state button that can be toggled on or off.',
+    coss: true,
+  },
+  {
+    slug: 'toggle-group',
+    title: 'Toggle Group',
+    description: 'Provides a shared state to a series of toggle buttons.',
+    coss: true,
+  },
+  {
+    slug: 'toolbar',
+    title: 'Toolbar',
+    description: 'A container for grouping a set of buttons and controls.',
+    coss: true,
+  },
+  {
+    slug: 'tooltip',
+    title: 'Tooltip',
+    description: 'A popup that appears when an element is hovered or focused, showing a hint for sighted users.',
+    coss: true,
+  },
+]
+
+export const docsNav: NavGroup[] = [
+  {
+    title: 'Overview',
+    items: [
+      { title: 'Introduction', to: '/docs' },
+      { title: 'Get Started', to: '/docs/get-started' },
+    ],
+  },
+  {
+    title: 'Components',
+    items: componentDocs.map(doc => ({ title: doc.title, to: `/docs/components/${doc.slug}` })),
+  },
+]
