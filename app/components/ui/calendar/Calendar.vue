@@ -8,13 +8,16 @@ type CalendarRootProps = CalendarPrimitive.Root.Props
 
 export interface CalendarProps extends /* @vue-ignore */ Omit<CalendarRootProps, 'class' | 'modelValue' | 'defaultValue'>, /* @vue-ignore */ CalendarBaseProps {
   mode?: 'single' | 'range'
+  showOutsideDays?: boolean
   modelValue?: Temporal.PlainDate | readonly [Temporal.PlainDate | null, Temporal.PlainDate | null] | null
   defaultValue?: CalendarProps['modelValue']
 }
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<CalendarProps>()
+const props = withDefaults(defineProps<CalendarProps>(), {
+  showOutsideDays: true,
+})
 
 defineSlots<{
   day?: (props: CalendarDaySlotProps) => unknown
@@ -22,7 +25,7 @@ defineSlots<{
 </script>
 
 <template>
-  <CalendarBase v-bind="$attrs" :model-value="props.mode === 'range' ? props.modelValue ?? undefined : props.modelValue" :default-value="props.defaultValue" :root="props.mode === 'range' ? RangeCalendar.Root : CalendarPrimitive.Root">
+  <CalendarBase v-bind="$attrs" :model-value="props.mode === 'range' ? props.modelValue ?? undefined : props.modelValue" :default-value="props.defaultValue" :show-outside-days="props.showOutsideDays" :root="props.mode === 'range' ? RangeCalendar.Root : CalendarPrimitive.Root">
     <template v-if="$slots.day" #day="slotProps">
       <slot name="day" v-bind="slotProps" />
     </template>
