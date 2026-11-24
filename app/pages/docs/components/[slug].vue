@@ -33,7 +33,9 @@ if (!page.value)
 
 useSeoMeta({ title: `${doc.title} · coss ui for Vue`, description: doc.description })
 
-const vaseUrl = `https://vase-ui.com/components/${slug}`
+const vaseUrl = doc.vase === false
+  ? undefined
+  : `https://vase-ui.com/components/${doc.vase ?? slug}`
 const cossUrl = doc.coss
   ? `https://coss.com/ui/docs/components/${slug}`
   : undefined
@@ -67,6 +69,7 @@ const markdownComponents = { 'component-preview': ComponentPreview, 'pre': Markd
   >
     <template #actions>
       <Button
+        v-if="vaseUrl"
         as="a"
         :href="vaseUrl"
         target="_blank"

@@ -16,9 +16,9 @@
 
 ![The coss ui for Vue catalog, showing Accordion and Alert Dialog](docs/images/component-catalog.png)
 
-An unofficial Vue port of [coss ui](https://coss.com/ui). It includes 37 components with light and dark themes, interactive examples, and a [shadcn-vue registry](https://www.shadcn-vue.com/docs/registry). Components are copied into your app as Vue source, not installed as a single npm package.
+An unofficial Vue port of [coss ui](https://coss.com/ui). It includes 56 components with light and dark themes, interactive examples, and a [shadcn-vue registry](https://www.shadcn-vue.com/docs/registry). Components are copied into your app as Vue source, not installed as a single npm package.
 
-[Vase UI](https://vase-ui.com/) provides the unstyled primitives; this project adds the coss ui styling. The catalog only includes components with a Vase UI counterpart.
+[Vase UI](https://vase-ui.com/) is the only primitive library. The catalog also includes styled HTML components such as Alert, Card, and Table, and compositions such as Command and Sheet.
 
 ## Quick start
 
