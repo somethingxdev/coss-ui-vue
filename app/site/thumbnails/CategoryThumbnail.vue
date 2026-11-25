@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AlertCircleIcon, CalendarIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, EllipsisIcon, InfoIcon, MinusIcon, PlusIcon, TextCursorIcon, UserRoundIcon, XIcon } from '@lucide/vue'
+import { AlertCircleIcon, ArrowUpIcon, CalendarIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, EllipsisIcon, InfoIcon, MinusIcon, PackageOpenIcon, PlusIcon, SearchIcon, TextCursorIcon, UserRoundIcon, XIcon } from '@lucide/vue'
 import { cn } from '../../lib/utils'
 import ThumbButton from './ThumbButton.vue'
 import ThumbCard from './ThumbCard.vue'
@@ -38,6 +38,18 @@ const props = defineProps<{
             <ChevronDownIcon class="size-4 text-muted-foreground/88" />
             <ThumbText class="w-[60%]" />
           </div>
+        </div>
+      </ThumbCardPanel>
+    </ThumbCard>
+  </template>
+  <template v-else-if="props.slug === 'alert'">
+    <ThumbCard class="max-w-50">
+      <ThumbCardPanel class="flex items-start gap-3 p-4">
+        <InfoIcon class="size-4 shrink-0 text-primary" />
+        <div class="flex flex-1 flex-col gap-2">
+          <ThumbText class="w-2/3" />
+          <ThumbText variant="secondary" />
+          <ThumbText class="w-4/5" variant="secondary" />
         </div>
       </ThumbCardPanel>
     </ThumbCard>
@@ -81,6 +93,25 @@ const props = defineProps<{
         </div>
       </ThumbCardPanel>
     </ThumbCard>
+  </template>
+  <template v-else-if="props.slug === 'badge'">
+    <div class="flex items-center gap-2">
+      <div class="rounded-full bg-primary/15 px-3 py-2">
+        <ThumbText class="w-8 bg-primary" />
+      </div>
+      <div class="rounded-full border px-3 py-2">
+        <ThumbText class="w-6" variant="secondary" />
+      </div>
+    </div>
+  </template>
+  <template v-else-if="props.slug === 'breadcrumb'">
+    <div class="flex w-full max-w-44 items-center gap-1.5">
+      <ThumbText class="flex-1" variant="secondary" />
+      <ChevronRightIcon class="size-3 shrink-0 text-muted-foreground/88" />
+      <ThumbText class="flex-1" variant="secondary" />
+      <ChevronRightIcon class="size-3 shrink-0 text-muted-foreground/88" />
+      <ThumbText class="flex-1" />
+    </div>
   </template>
   <template v-else-if="props.slug === 'button'">
     <ThumbCard
@@ -188,6 +219,35 @@ const props = defineProps<{
       </ThumbCardPanel>
     </ThumbCard>
   </template>
+  <template v-else-if="props.slug === 'command'">
+    <ThumbCard class="max-w-50">
+      <ThumbCardPanel class="divide-y divide-border p-0">
+        <div class="flex items-center gap-2 p-3">
+          <SearchIcon class="size-4 shrink-0 text-muted-foreground/88" />
+          <ThumbText class="w-1/2" />
+        </div>
+        <div class="flex flex-col gap-3 p-2">
+          <div class="rounded-md bg-muted-foreground/12 p-2">
+            <ThumbText class="w-2/3" />
+          </div>
+          <ThumbText class="mb-2 ms-2 w-1/2" variant="secondary" />
+        </div>
+      </ThumbCardPanel>
+    </ThumbCard>
+  </template>
+  <template v-else-if="props.slug === 'composer'">
+    <ThumbCard class="max-w-50">
+      <ThumbCardPanel class="flex flex-col gap-4 p-3">
+        <ThumbText class="w-2/3" variant="secondary" />
+        <div class="flex items-center justify-between">
+          <PlusIcon class="size-4 text-muted-foreground/88" />
+          <div class="grid size-6 place-items-center rounded-full bg-primary text-primary-foreground">
+            <ArrowUpIcon class="size-4" />
+          </div>
+        </div>
+      </ThumbCardPanel>
+    </ThumbCard>
+  </template>
   <template v-else-if="props.slug === 'context-menu'">
     <div class="flex max-w-50 flex-1 flex-col">
       <ThumbCard class="border-input border-dashed bg-none shadow-none [--radius-2xl:10px] before:hidden">
@@ -239,6 +299,13 @@ const props = defineProps<{
       </ThumbCard>
     </div>
   </template>
+  <template v-else-if="props.slug === 'empty'">
+    <div class="flex w-full max-w-50 flex-col items-center gap-3 rounded-xl border border-input border-dashed p-4">
+      <PackageOpenIcon class="size-6 text-muted-foreground/88" />
+      <ThumbText class="w-1/2" />
+      <ThumbText class="w-3/4" variant="secondary" />
+    </div>
+  </template>
   <template v-else-if="props.slug === 'field'">
     <div class="flex max-w-50 flex-1 flex-col gap-3">
       <ThumbFormField show-error />
@@ -261,12 +328,52 @@ const props = defineProps<{
       </ThumbCard>
     </div>
   </template>
+  <template v-else-if="props.slug === 'frame'">
+    <div class="flex w-full max-w-50 flex-col gap-3 rounded-2xl border bg-muted-foreground/8 p-2">
+      <ThumbText class="ms-2 mt-1 w-1/3" />
+      <ThumbCard class="[--radius-2xl:10px]" :with-gradient="false">
+        <ThumbCardPanel class="flex flex-col gap-2 p-3">
+          <ThumbText variant="secondary" />
+          <ThumbText class="w-2/3" variant="secondary" />
+        </ThumbCardPanel>
+      </ThumbCard>
+    </div>
+  </template>
+  <template v-else-if="props.slug === 'group'">
+    <ThumbCard class="max-w-36 flex-row divide-x [--radius-2xl:10px]">
+      <ThumbCardPanel class="px-3 py-3">
+        <ThumbText class="w-full" />
+      </ThumbCardPanel>
+      <ThumbCardPanel class="px-3 py-3">
+        <ThumbText class="w-full" />
+      </ThumbCardPanel>
+      <ThumbCardPanel class="px-3 py-3">
+        <ThumbText class="w-full" />
+      </ThumbCardPanel>
+    </ThumbCard>
+  </template>
   <template v-else-if="props.slug === 'input'">
     <ThumbCard class="[--radius-2xl:14px]" :with-gradient="false">
       <ThumbCardPanel class="px-6 py-4">
         <ThumbText class="w-[60%]" />
       </ThumbCardPanel>
     </ThumbCard>
+  </template>
+  <template v-else-if="props.slug === 'input-group'">
+    <ThumbCard class="max-w-50 [--radius-2xl:12px]" :with-gradient="false">
+      <ThumbCardPanel class="flex items-center gap-2 p-2.5">
+        <SearchIcon class="size-4 shrink-0 text-muted-foreground/88" />
+        <ThumbText class="max-w-20 flex-1" />
+        <ThumbButton class="ms-auto" variant="primary" />
+      </ThumbCardPanel>
+    </ThumbCard>
+  </template>
+  <template v-else-if="props.slug === 'kbd'">
+    <div class="flex items-center gap-1.5">
+      <kbd class="grid h-7 min-w-7 place-items-center rounded-md border bg-card px-1.5 text-xs text-muted-foreground shadow-xs">Ctrl</kbd>
+      <PlusIcon class="size-3 text-muted-foreground/88" />
+      <kbd class="grid h-7 min-w-7 place-items-center rounded-md border bg-card px-1.5 text-xs text-muted-foreground shadow-xs">K</kbd>
+    </div>
   </template>
   <template v-else-if="props.slug === 'label'">
     <div class="flex max-w-50 flex-1 flex-col gap-3">
@@ -347,6 +454,15 @@ const props = defineProps<{
       </ThumbCard>
     </div>
   </template>
+  <template v-else-if="props.slug === 'pagination'">
+    <div class="flex items-center gap-1 text-xs text-muted-foreground tabular-nums">
+      <ChevronLeftIcon class="size-4" />
+      <span class="grid size-6 place-items-center rounded-md bg-primary text-primary-foreground">1</span>
+      <span class="grid size-6 place-items-center">2</span>
+      <span class="grid size-6 place-items-center">3</span>
+      <ChevronRightIcon class="size-4" />
+    </div>
+  </template>
   <template v-else-if="props.slug === 'popover'">
     <div class="flex max-w-50 flex-1 flex-col items-center gap-2">
       <ThumbCard class="w-fit [--radius-2xl:12px]">
@@ -415,6 +531,9 @@ const props = defineProps<{
       </ThumbCardPanel>
     </ThumbCard>
   </template>
+  <template v-else-if="props.slug === 'segmented-control'">
+    <ThumbSegmentedControl />
+  </template>
   <template v-else-if="props.slug === 'separator'">
     <div class="max-w-50 flex-1 divide-y">
       <div class="flex flex-col gap-2 py-3">
@@ -453,6 +572,15 @@ const props = defineProps<{
       </ThumbCard>
     </div>
   </template>
+  <template v-else-if="props.slug === 'skeleton'">
+    <div class="flex w-full max-w-44 items-center gap-3">
+      <div class="size-10 shrink-0 rounded-full bg-muted-foreground/15" />
+      <div class="flex flex-1 flex-col gap-2">
+        <ThumbText class="h-2 w-4/5" variant="secondary" />
+        <ThumbText class="h-2 w-3/5" variant="secondary" />
+      </div>
+    </div>
+  </template>
   <template v-else-if="props.slug === 'slider'">
     <div class="flex w-full max-w-50 items-center gap-1">
       <ThumbText
@@ -470,6 +598,17 @@ const props = defineProps<{
     <div class="h-6 w-10 rounded-full bg-muted-foreground/20 p-0.5">
       <div class="size-5 rounded-full bg-linear-to-b from-card to-card/90 shadow-xs/5 dark:from-background/90 dark:to-background" />
     </div>
+  </template>
+  <template v-else-if="props.slug === 'table'">
+    <ThumbCard class="max-w-50 overflow-hidden [--radius-2xl:10px]">
+      <ThumbCardPanel class="divide-y divide-border p-0">
+        <div v-for="row in 4" :key="row" class="grid grid-cols-3 gap-3 px-3 py-2.5" :class="{ 'bg-muted-foreground/12': row === 1 }">
+          <ThumbText />
+          <ThumbText variant="secondary" />
+          <ThumbText variant="secondary" />
+        </div>
+      </ThumbCardPanel>
+    </ThumbCard>
   </template>
   <template v-else-if="props.slug === 'tabs'">
     <div class="flex max-w-50 flex-col gap-4">
